@@ -3,10 +3,50 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>UCR Campus Tag</h1>
+  {{> issueSubmitForm}}
 </body>
 
 
-<template name="info">
-
+<template name="issueSubmitForm">
+  <form>
+  <div class="form-group">
+    <label for="issueTitle">Issue: </label>
+    <input type="text" class="form-control" id="issueString" aria-describedby="issueHelp" >
+    <small id="issueHelp" class="form-text text-muted">Enter a short description of issue </small>
+  </div>
+  <div class="form-group">
+    <label for="buildingSelect">Building Select</label>
+    <select class="form-control" id="buildingSelection">
+      <option>Anderson Hall</option>
+      <option>Batchelor Hall</option>
+      <option>Boyce Hall</option>
+      <option>Chapman Hall</option>
+      <option>Webber Hall</option>
+    </select>
+  </div>
+  <!--
+  <div class="form-group">
+    <label for="exampleSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select></div>
+  -->
+  <div class="form-group">
+    <label for="issueDescribe">Description</label>
+    <textarea class="form-control" id="issueDescription" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="inputFile">File input</label>
+    <input type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">
+      Please insert at least 3 images
+    </small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </template>
