@@ -1,11 +1,42 @@
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>campus_tag</title>
 </head>
 
 <body>
-
 </body>
 
+<template name="Applicationlayout">
+    <div class="container">
+        <a href="/">Home</a>
+        {{>loginButtons}}
+        <h1>UCR Campus Tag</h1>
+        <!-- iron router will select what to render in place of yield-->
+        {{>header }}
+        {{> yield }}
+    </div>
+</template>
+
+<template name="header">  
+  <nav class="navbar navbar-default" role="navigation">    
+    <div class="container-fluid">      
+      <div class="navbar-header">        
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">          
+          <span class="sr-only">Toggle navigation</span>          
+          <span class="icon-bar"></span>          
+          <span class="icon-bar"></span>          
+          <span class="icon-bar"></span>        
+        </button>        
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Campus Facility Issues </a>      
+      </div>      
+      <div class="collapse navbar-collapse" id="navigation">        
+        <ul class="nav navbar-nav navbar-right">          
+                 
+        </ul>      
+      </div>    
+    </div>  
+  </nav>
+</template>
 
 <template name="issueSubmitForm">
   <form>
@@ -50,23 +81,18 @@
   </form>
 </template>
 
-<template name="header">  
-  <nav class="navbar navbar-default" role="navigation">    
-    <div class="container-fluid">      
-      <div class="navbar-header">        
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">          
-          <span class="sr-only">Toggle navigation</span>          
-          <span class="icon-bar"></span>          
-          <span class="icon-bar"></span>          
-          <span class="icon-bar"></span>        
-        </button>        
-        <a class="navbar-brand" href="{{pathFor 'home'}}">Photo Gallery</a>      
-      </div>      
-      <div class="collapse navbar-collapse" id="navigation">        
-        <ul class="nav navbar-nav navbar-right">          
-                 
-        </ul>      
-      </div>    
-    </div>  
-  </nav>
+
+<template name="home">
+
+</template>
+
+<template name="notFound">
+  <div class="not-found jumbotron">
+    <h2>404</h2>
+    <p>Sorry, we couldn't find a page at this address.</p>
+  </div>
+</template>
+
+<template name="loading">
+  {{>spinner}}
 </template>
