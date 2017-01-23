@@ -25,3 +25,4 @@ accounts-ui
 accounts-password
 iron:router
 sacha:spin
+cfs:standard-packages
