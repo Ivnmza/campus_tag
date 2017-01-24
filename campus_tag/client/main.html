@@ -9,37 +9,27 @@
 <!-- App Layout -->
 <template name="Applicationlayout">
     <div class="container">
-        <a href="/">Home</a>
-        {{>loginButtons}}
-        <h1>UCR Campus Tag</h1>
         <!-- iron router will select what to render in place of yield-->
-        {{> header }}
+        {{> navbar}}
         {{> uploadForm}}
+        {{> descriptionForm}}
         {{> uploadedFiles}}
-        {{> issueSubmitForm}}
+        
     </div>
 </template>
 
 
 
-<!-- Header -->
-<template name="header">  
-  <nav class="navbar navbar-default" role="navigation">    
+<!-- Navbar -->
+<template name="navbar">  
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container">  
+  {{>loginButtons}}   
+  </div>
     <div class="container-fluid">      
-      <div class="navbar-header">        
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">          
-          <span class="sr-only">Toggle navigation</span>          
-          <span class="icon-bar"></span>          
-          <span class="icon-bar"></span>          
-          <span class="icon-bar"></span>        
-        </button>        
-        <a class="navbar-brand" href="{{pathFor 'home'}}">Campus Facility Issues </a>      
-      </div>      
-      <div class="collapse navbar-collapse" id="navigation">        
-        <ul class="nav navbar-nav navbar-right">          
-                 
-        </ul>      
-      </div>    
+      <div class="navbar-header">       
+        <a class="navbar-brand" href="/">UCR CAMPUS TAG </a>     
+      </div>   
     </div>  
   </nav>
 </template>
@@ -67,7 +57,7 @@
     <div>No files uploaded, yet</div>
   {{/if}}
 </template>
-<template name="issueSubmitForm">
+<template name="descriptionForm">
     <form>
       <div class="form-group">
         <label for="issueTitle">Issue: </label>
