@@ -12,14 +12,3 @@ this.Images = new Meteor.Files({
   }
 });
 
-if (Meteor.isServer) {
-  Images.denyClient();
-  Meteor.publish('files.images.all', function () {
-    console.log("Here in publish: ")
-    return Images.find().cursor;
-  });
-
-} else {
-
-  Meteor.subscribe('files.images.all');
-}
