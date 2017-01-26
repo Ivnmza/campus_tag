@@ -2,7 +2,9 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
-
+Meteor.subscribe('files.images.all');
+console.log(Images.find());
+console.log(Images.collection.find());
 Template.uploadedFiles.helpers({
   uploadedFiles: function () {
     return Images.find();
@@ -48,5 +50,11 @@ Template.uploadForm.events({
         uploadInstance.start();
       }
     }
+  }
+});
+
+Template.images.helpers({
+images:function(){
+    return Images.find();         
   }
 });

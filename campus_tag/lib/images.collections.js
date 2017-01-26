@@ -1,4 +1,4 @@
-this.Images = new Meteor.Files({
+this.Images = new FilesCollection({
   debug: true,
   collectionName: 'Images',
   allowClientCode: false, // Disallow remove files from Client
