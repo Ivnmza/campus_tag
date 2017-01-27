@@ -29,3 +29,4 @@ raix:ui-dropped-event
 cfs:gridfs
 ostrio:files
 autopublish
+session
