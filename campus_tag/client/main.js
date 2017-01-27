@@ -11,7 +11,9 @@ images:function(){
 
 Template.descriptionForm.events({
   'change :file': function(event) {
-     console.log("Change event: ", event);
-     console.log("Files: ", event.target.files);  
+     console.log("Change event: ", event); 
+     var input = $(event.target);
+     var numfiles = input.get(0).files ? input.get(0).files.length : 1;
+     var label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
   }
 })
