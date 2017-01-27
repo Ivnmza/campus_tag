@@ -1,6 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 
  // in startup file because we want access from shared variables from other files
+ Meteor.startup(function(){
+if (Images.find().count() == 0){
+  console.log("No images yet");
+  }// end of if have no images
+});
+
 
 Images.deny({
  insert: function(){
