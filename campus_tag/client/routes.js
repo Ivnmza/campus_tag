@@ -5,3 +5,4 @@ Router.route('/report', function() {
   this.render('report')
 })
 
+
