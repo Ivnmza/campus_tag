@@ -1,18 +1,33 @@
 import { Meteor } from 'meteor/meteor';
 
-Meteor.startup(() => { // in startup file because we want access from shared variables from other files
-  if (Meteor.isServer) {
-    Images.denyClient();
+ // in startup file because we want access from shared variables from other files
 
-    /*
-      Images.load('https://raw.githubusercontent.com/VeliovGroup/Meteor-Files/master/logo.png', {
-        fileName: 'logo.png'
-      });
-    */
-    
-    Meteor.publish('files.images.all', function () {
-      console.log("Here in publish: ")
-      return Images.find().cursor;
-    });
-  }
+Images.deny({
+ insert: function(){
+ return false;
+ },
+ update: function(){
+ return false;
+ },
+ remove: function(){
+ return false;
+ },
+ download: function(){
+ return false;
+ }
+ });
+
+Images.allow({
+ insert: function(){
+ return true;
+ },
+ update: function(){
+ return true;
+ },
+ remove: function(){
+ return true;
+ },
+ download: function(){
+ return true;
+ }
 });

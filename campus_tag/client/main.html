@@ -9,10 +9,8 @@
       <div class="container">
           <!-- iron router will select what to render in place of yield-->
           {{> navbar}}
-          {{> loginButtons }}
-          {{> uploadForm}}
+          {{> loginButtons }}         
           {{> descriptionForm}}
-          {{> uploadedFiles}}
           
       </div>
   </template>
@@ -58,29 +56,7 @@
     </nav>
   </template>
 
-<!-- Image uploading -->
-  <template name="uploadForm">
-      {{#with currentUpload}}
-        Uploading <b>{{file.name}}</b>: 
-        <span id="progress">{{progress.get}}%</span>
-      {{else}}
-        <input id="fileInput" type="file" />
-        <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
-      {{/with}}
-  </template>
-  <template name="uploadedFiles">
-    {{#if uploadedFiles.count}}
-      <ul>
-        {{#each file in uploadedFiles.each}}
-          <li>
-            <a href="{{file.link}}?download=true" download="{{file.name}}">{{file.name}}</a>
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <div>No files uploaded, yet</div>
-    {{/if}}
-  </template>
+<!-- Description Form -->
   <template name="descriptionForm">
       <form>
         <div class="form-group">
@@ -90,28 +66,20 @@
         </div>
         <div class="form-group">
           <label for="buildingSelect">Building Select</label>
-          <select class="form-control" id="buildingSelection">
-            <option>Anderson Hall</option>
-            <option>Batchelor Hall</option>
-            <option>Boyce Hall</option>
-            <option>Chapman Hall</option>
-            <option>Webber Hall</option>
-          </select>
-        </div>
-        <!--
-        <div class="form-group">
-          <label for="exampleSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select></div>
-        -->
-        <div class="form-group">
+            <select class="form-control" id="buildingSelection">
+              <option>Anderson Hall</option>
+              <option>Batchelor Hall</option>
+              <option>Boyce Hall</option>
+              <option>Chapman Hall</option>
+              <option>Webber Hall</option>
+            </select>
           <label for="issueDescribe">Description</label>
           <textarea class="form-control" id="issueDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="btn btn-default btn-file">
+            Add Images <input type="file" style="display: none;">
+          </label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
