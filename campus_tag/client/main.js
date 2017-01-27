@@ -8,14 +8,25 @@ images:function(){
     return Images.find();         
   }
 });
-
+Template.descriptionForm.helpers({
+})
 Template.descriptionForm.events({
   'change :file': function(event) {
      console.log("Change event: ", event);
      var $this = $(event.target);
      var input = $this;
-     var numfiles = input.get(0).files ? input.get(0).files.length : 1;
+     var numFiles = input.get(0).files ? input.get(0).files.length : 1;
      var label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-     console.log(label, numfiles);
+
+     var text = $this.parents('.input-group').find(':text');
+     var log = numFiles > 1 ? numFiles + ' files selected' :label;
+
+     if( text.length ) {
+        text.val(log);
+      } else {
+        if( log ) alert(log);
+      }
+
+     Session.set('log', log);
   }
 })
